@@ -1,0 +1,1 @@
+Select * from databasename.table name whrere name = "" ;
