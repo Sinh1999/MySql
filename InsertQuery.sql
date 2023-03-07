@@ -58,18 +58,3 @@ VALUES
   
   
   
-INSERT INTO `employee`.`employee` (`id`, `first_name`, `last_name`, `age`, `mobile_number`, `address`) VALUES
- ( '5','Shailesh', 'Sinh', '24', '6355939105', 'Rajkot'),
- ( '6','Vishal', 'Patel', '25', '312457894', 'valsad'),
-  ( '7','Rohan', 'Vyas', '26', '7894652314', 'Surat'),
- ( '8','Ketan', 'Gosawami', '27', '6547891231', 'Ahmadabad'); 
-  
-  
-   INSERT INTO `employee`.`hobby` (`id`,`name`) 
- VALUES ('5','Reading'),('6','Writting'),('7','PalyIndoorGames'), ('8','PalyOutdoorGames');
- 
- INSERT INTO `employee`.`employee_hobby`(`id`,`employee_id`,`employee_hobby_id`)
-  VALUES ('8','1','3'), ('9','1','4') ,('10','2','1'), ('11','3','2') , ('12','3','1'), ('13','4','1'),('14','4','4') ;
-  
-  INSERT INTO `employee`.`employee_salary` (`id`, `employee_id`, `salary`, `date`) 
-  VALUES ('7', '1', '28000', '2022-12-29'),('8', '2', '35000', '2022-12-29'), ('9', '3', '33000', '2022-12-29'),('10', '4', '45000', '2022-12-29'),('11', '2', '30000', '2023-01-29'),('12', '3', '29000', '2023-01-29') ; 

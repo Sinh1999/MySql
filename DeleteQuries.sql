@@ -14,7 +14,7 @@ WHERE
 DELETE FROM 
   `employee` 
 WHERE 
-  IN (3, 7);
+  id IN (3, 7);
 
 -- Delete `employee`table in two data
 DELETE FROM 
@@ -22,5 +22,3 @@ DELETE FROM
 WHERE 
   NAME IN ("Singing", "Acting");
 
--- delete emp,salary from `employee`.`employee` as emp inner join `employee`.`employee_salary` as salary on emp.`id` = salary.`employee_id` where emp.`id` in (3,7);
--- 
