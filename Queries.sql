@@ -71,19 +71,19 @@ SELECT * FROM `employee_salary`;
 SELECT * FROM `hobby`;
 
 -- Get all employee name, all hobby_name in single column
-SELECT (SELECT employee.`first_name` FROM `employee` AS employee WHERE employee.`id` = employee_hobby.`fk_employee_id`) AS employee_name, 
-  (SELECT hobby.name FROM `hobby` AS hobby WHERE hobby.id = hobby.`fk_employee_hobby_id`) AS hobby_name FROM `employee_hobby` AS employee_hobby;
+SELECT (SELECT emp.`first_name` FROM `employee` AS emp WHERE emp.`id` = emp_hby.`fk_employee_id`) AS employee_name, 
+  (SELECT hby.name FROM `hobby` AS hby WHERE hby.id = emp_hby.`fk_employee_hobby_id`) AS hobby_name FROM `employee_hobby` AS emp_hby;
  
 -- Get employee name, his/her employee_salary 
-SELECT employee.`first_name`, employee.`last_name`, salary.`salary` FROM `employee_salary` AS salary 
-  INNER JOIN `employee` AS employee ON salary.`fk_employee_id` = employee.`id` WHERE employee.id = 2;
+SELECT emp.`first_name`, emp.`last_name`, emp_slry.`salary` FROM `employee_salary` AS emp_slry 
+  INNER JOIN `employee` AS emp ON emp_slry.`fk_employee_id` = emp.`id` WHERE emp.id = 2;
   
 -- Get employee name, total salary of employee, hobby name  
-SELECT CONCAT(employee.`first_name`, ' ', employee.`last_name`) AS employee_name, 
-  GROUP_CONCAT(DISTINCT(SELECT hobby.name FROM `hobby` AS hobby WHERE hobby.id = employee_hobby.`fk_employee_hobby_id`)) AS hobby, 
-  SUM(DISTINCT salary.`salary`) AS total_salary FROM `employee` AS employee 
-  INNER JOIN `employee_salary` AS salary ON employee.id = salary.`fk_employee_id` 
-  INNER JOIN `employee_hobby` AS employee_hobby ON salary.`fk_employee_id` = employee_hobby.`fk_employee_id` WHERE employee.`id` = 2;
+SELECT CONCAT(emp.`first_name`, ' ', emp.`last_name`) AS employee_name, 
+  GROUP_CONCAT(DISTINCT(SELECT hby.name FROM `hobby` AS hby WHERE hby.id = employee_hobby.`fk_employee_hobby_id`)) AS hobby, 
+  SUM(DISTINCT emp_slry.`salary`) AS total_salary FROM `employee` AS emp 
+  INNER JOIN `employee_salary` AS emp_slry ON emp.id = emp_slry.`fk_employee_id` 
+  INNER JOIN `employee_hobby` AS emp_hby ON emp_slry.`fk_employee_id` = emp_hby.`fk_employee_id` WHERE emp.`id` = 2;
 
 -- Truncate `employee` tables
 TRUNCATE TABLE `employee`;
